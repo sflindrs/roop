@@ -178,6 +178,7 @@ def start(preview_callback = None):
         return
     if is_img(target_path):
         if not args.allow_nsfw and predict_image(target_path) > 0.85:
+            print("Warning: NSFW content detected! To force, please use --allow-nsfw flag")
             quit()
         process_img(args.source_img, target_path, args.output_file)
         status("swap successful!")
